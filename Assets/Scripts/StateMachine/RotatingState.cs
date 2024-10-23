@@ -8,9 +8,9 @@ public class RotatingState : IState
     public EnemyController owner { get; set; }
 
     private float targetRotation;
-    private OnePunchManStateMachine statemachine;
+    private IStateMachine statemachine;
 
-    public RotatingState(OnePunchManStateMachine stateMachine)
+    public RotatingState(IStateMachine stateMachine)
     {
         this.statemachine = stateMachine;
     }

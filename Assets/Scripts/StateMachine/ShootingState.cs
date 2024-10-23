@@ -6,13 +6,13 @@ public class ShootingState : IState
 {
     public EnemyController owner { get; set; }
 
-    private OnePunchManStateMachine statemachine;
+    private IStateMachine statemachine;
 
     private float shootTimer;
 
     private Quaternion desiredRotation;
 
-    public ShootingState(OnePunchManStateMachine stateMachine)
+    public ShootingState(IStateMachine stateMachine)
     {
         this.statemachine = stateMachine;
     }

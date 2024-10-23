@@ -9,9 +9,9 @@ public class PatrollingState : IState
     private Vector3 destination;
 
     public EnemyController owner { get; set; }
-    private OnePunchManStateMachine stateMachine;
+    private IStateMachine stateMachine;
 
-    public PatrollingState(OnePunchManStateMachine stateMachine)
+    public PatrollingState(IStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
     }

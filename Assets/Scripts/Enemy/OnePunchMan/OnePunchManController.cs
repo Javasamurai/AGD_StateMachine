@@ -35,6 +35,7 @@ namespace StatePattern.Enemy
         {
             base.PlayerEnteredRange(targetToSet);
             onePunchManStateMachine.ChangeState(States.SHOOTING);
+            Debug.Log("Shooting");
         }
 
         public override void PlayerExitedRange() 
