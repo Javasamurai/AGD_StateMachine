@@ -23,7 +23,7 @@ public class GenericStateMachine<T> where T : EnemyController
         this.state.OnStateEnter();
     }
 
-    public void SetOwner(T owner)
+    public void SetOwner()
     {
         foreach (IState s in states.Values)
         {
@@ -32,4 +32,9 @@ public class GenericStateMachine<T> where T : EnemyController
     }
 
     public void ChangeState(States state) => ChangeState(states[state]);
+
+    public void Update()
+    {
+        this.state?.Update();
+    }
 }

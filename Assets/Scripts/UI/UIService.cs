@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace StatePattern.UI
 {
+    [DefaultExecutionOrder(-100)]
     public class UIService : MonoBehaviour
     {
         [Header("Level Selection UI")]
