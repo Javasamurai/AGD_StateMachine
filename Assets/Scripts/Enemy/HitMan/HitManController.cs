@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using StatePattern.StateMachine;
 using StatePattern.Enemy.Bullet;
@@ -6,18 +7,18 @@ using StatePattern.Player;
 
 namespace StatePattern.Enemy
 {
-    public class OnePunchManController : EnemyController
+    public class HitManController : EnemyController
     {
         private OnePunchManStateMachine stateMachine;
 
-        public OnePunchManController(EnemyScriptableObject enemyScriptableObject) : base(enemyScriptableObject)
+        public HitManController(EnemyScriptableObject enemyScriptableObject) : base(enemyScriptableObject)
         {
             enemyView.SetController(this);
             CreateStateMachine();
             stateMachine.ChangeState(States.IDLE);
         }
 
-        private void CreateStateMachine() => stateMachine = new OnePunchManStateMachine(this);
+        private void CreateStateMachine() => stateMachine = new HitManStateMachine(this);
 
         public override void UpdateEnemy()
         {
@@ -30,7 +31,7 @@ namespace StatePattern.Enemy
         public override void PlayerEnteredRange(PlayerController targetToSet)
         {
             base.PlayerEnteredRange(targetToSet);
-            stateMachine.ChangeState(States.CHASING);
+            stateMachine.ChangeState(States.SHOOTING);
         }
 
         public override void PlayerExitedRange() => stateMachine.ChangeState(States.IDLE);
