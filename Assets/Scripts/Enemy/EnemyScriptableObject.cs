@@ -28,5 +28,7 @@ namespace StatePattern.Enemy
         public float PlayerStoppingDistance;
 
         public float TeleportingRadius;
+
+        public int CloneCount;
     }
 }

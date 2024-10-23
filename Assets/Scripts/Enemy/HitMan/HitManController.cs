@@ -9,7 +9,7 @@ namespace StatePattern.Enemy
 {
     public class HitManController : EnemyController
     {
-        private OnePunchManStateMachine stateMachine;
+        private HitManStateMachine stateMachine;
 
         public HitManController(EnemyScriptableObject enemyScriptableObject) : base(enemyScriptableObject)
         {

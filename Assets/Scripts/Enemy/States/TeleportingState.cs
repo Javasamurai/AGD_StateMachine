@@ -9,7 +9,6 @@ namespace StatePattern.Enemy
     {
         public EnemyController Owner { get; set; }
         private GenericStateMachine<T> stateMachine;
-        private float timer;
 
         public TeleportingState(GenericStateMachine<T> stateMachine) => this.stateMachine = stateMachine;
 
@@ -26,9 +25,9 @@ namespace StatePattern.Enemy
 
         private Vector3 GetRandomNavMeshPoints()
         {
-            Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * Owner.Data.TeleportingRadius + Owner.Position;
+            Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * 5 + Owner.Position;
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomDirection, out hit, Owner.Data.TeleportingRadius, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randomDirection, out hit, 5, NavMesh.AllAreas))
             {
                 return hit.position;
             }

@@ -2,6 +2,7 @@ using StatePattern.Level;
 using StatePattern.Main;
 using StatePattern.Sound;
 using StatePattern.UI;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -63,6 +64,9 @@ namespace StatePattern.Enemy
                 case EnemyType.Hitman:
                     enemy = new HitManController(enemyScriptableObject);
                     break;
+                case EnemyType.Robot:
+                    enemy = new CloneManController(enemyScriptableObject);
+                    break;
                 default:
                     enemy = new EnemyController(enemyScriptableObject);
                     break;
@@ -92,5 +96,10 @@ namespace StatePattern.Enemy
         }
 
         private bool PlayerWon() => activeEnemies.Count == 0;
+
+        internal void AddEnemy(EnemyController enemyController)
+        {
+            activeEnemies.Add(enemyController);
+        }
     }
 }
