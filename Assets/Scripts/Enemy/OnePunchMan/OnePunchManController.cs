@@ -7,9 +7,6 @@ namespace StatePattern.Enemy
 {
     public class OnePunchManController : EnemyController
     {
-        // private bool isIdle;
-        // private bool isRotating;
-        // private bool isShooting;
         private float idleTimer;
         private float shootTimer;
         private float targetRotation;
@@ -26,6 +23,8 @@ namespace StatePattern.Enemy
             onePunchManStateMachine.ChangeState(OnePunchManState.IDLE);
         }
 
+        public PlayerController Target => target;
+
         private void CreateStateMachine()
         {
             onePunchManStateMachine = new OnePunchManStateMachine(this);
@@ -33,9 +32,6 @@ namespace StatePattern.Enemy
 
         private void InitializeVariables()
         {
-            // isIdle = true;
-            // isRotating = false;
-            // isShooting = false;
             idleTimer = enemyScriptableObject.IdleTime;
             shootTimer = enemyScriptableObject.RateOfFire;
         }

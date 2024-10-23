@@ -18,7 +18,7 @@ namespace StatePattern.Enemy
         {
             states.Add(OnePunchManState.IDLE, new IdleState(this));
             states.Add(OnePunchManState.ROTATING, new RotatingState(this));
-            // states.Add(OnePunchManState.SHOOTING, new OnePunchManState(this));
+            states.Add(OnePunchManState.SHOOTING, new ShootingState(this));
         }
 
         private void SetOwner()
