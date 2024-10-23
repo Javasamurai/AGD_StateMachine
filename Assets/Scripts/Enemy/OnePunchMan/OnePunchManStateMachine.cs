@@ -4,9 +4,9 @@ namespace StatePattern.Enemy
 {
     public class OnePunchManStateMachine
     {
-        public OnePunchManController Owner;
+        public EnemyController Owner;
         private IState currentState;
-        protected Dictionary<OnePunchManState, IState> states = new Dictionary<OnePunchManState, IState>();
+        protected Dictionary<States, IState> states = new Dictionary<States, IState>();
         public OnePunchManStateMachine(OnePunchManController owner)
         {
             this.Owner = owner;
@@ -16,9 +16,9 @@ namespace StatePattern.Enemy
 
         private void CreateStates()
         {
-            states.Add(OnePunchManState.IDLE, new IdleState(this));
-            states.Add(OnePunchManState.ROTATING, new RotatingState(this));
-            states.Add(OnePunchManState.SHOOTING, new ShootingState(this));
+            states.Add(States.IDLE, new IdleState(this));
+            states.Add(States.ROTATING, new RotatingState(this));
+            states.Add(States.SHOOTING, new ShootingState(this));
         }
 
         private void SetOwner()
@@ -38,7 +38,7 @@ namespace StatePattern.Enemy
             currentState.OnStateEnter();
         }
 
-        public void ChangeState(OnePunchManState state)
+        public void ChangeState(States state)
         {
             ChangeState(states[state]);
         }

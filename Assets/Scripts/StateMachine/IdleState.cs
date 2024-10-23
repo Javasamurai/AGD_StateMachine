@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class IdleState : IState
 {
-    public OnePunchManController owner { get; set; }
+    public EnemyController owner { get; set; }
     private OnePunchManStateMachine stateMachine;
     private float timer;
     public IdleState(OnePunchManStateMachine stateMachine)
@@ -33,7 +33,7 @@ public class IdleState : IState
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            stateMachine.ChangeState(OnePunchManState.ROTATING);
+            stateMachine.ChangeState(States.ROTATING);
         }
     }
 }

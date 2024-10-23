@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShootingState : IState
 {
-    public OnePunchManController owner { get; set; }
+    public EnemyController owner { get; set; }
 
     private OnePunchManStateMachine statemachine;
 
@@ -25,7 +25,7 @@ public class ShootingState : IState
 
     private Quaternion CalculateRotationTowardsPlayer()
     {
-        Vector3 directionToPlayer = owner.Target.Position - owner.Position;
+        Vector3 directionToPlayer = owner.GetTarget().Position - owner.Position;
         directionToPlayer.y = 0f;
         return Quaternion.LookRotation(directionToPlayer, Vector3.up);
     }

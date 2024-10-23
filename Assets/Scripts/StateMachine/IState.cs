@@ -2,7 +2,7 @@ namespace StatePattern.Enemy
 {
     public interface IState
     {
-        public OnePunchManController owner { get; set; }
+        public EnemyController owner { get; set; }
         public void OnStateEnter();
         public void OnStateExit();
         public void Update();
@@ -10,9 +10,11 @@ namespace StatePattern.Enemy
 }
 
 
-public enum OnePunchManState
+public enum States
 {
     IDLE,
     ROTATING,
-    SHOOTING
+    SHOOTING,
+    PATROLING,
+    CHASING
 }

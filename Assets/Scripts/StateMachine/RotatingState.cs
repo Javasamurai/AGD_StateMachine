@@ -5,7 +5,7 @@ using UnityEngine.PlayerLoop;
 
 public class RotatingState : IState
 {
-    public OnePunchManController owner { get; set; }
+    public EnemyController owner { get; set; }
 
     private float targetRotation;
     private OnePunchManStateMachine statemachine;
@@ -30,7 +30,7 @@ public class RotatingState : IState
         owner.SetRotation(CalculateRotation());
         if (RotationComplete())
         {
-            statemachine.ChangeState(OnePunchManState.IDLE);
+            statemachine.ChangeState(States.IDLE);
         }
     }
 
