@@ -22,7 +22,7 @@ public class RotatingState : IState
 
     public void OnStateExit()
     {
-        throw new System.NotImplementedException();
+        targetRotation = 0;
     }
 
     public void Update()
